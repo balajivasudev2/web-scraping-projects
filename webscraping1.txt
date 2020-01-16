@@ -3,6 +3,9 @@ import requests
 url="place your url "
 data=requests.get(url)
 soup=bs4.BeautifulSoup(data.text,'html.parser')
+print(soup.prettify())
+for para in soup.find_all('p'):
+    print(para.text)
 for link in soup.find_all('a'):
     links=link.get('href')
     print(links)
